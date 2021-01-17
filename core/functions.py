@@ -41,22 +41,37 @@ def help():
     print(colored("exit \t\t\t\texit current session","blue"))
     print(colored("list \t\t\t\tlist current menu all features","blue"))
 
-def shellcode_execute():
+def x64cpp_execute():
     try:
-        os.system('i686-w64-mingw32-g++ ' + '/root/shellcode.cpp' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
+        os.system('x86_64-w64-mingw32-g++ ' + '/root/shellcode.cpp' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
         os.system('rm -rf ' + '/root/shellcode.cpp')
         print(colored("[+]shellcode compoile at /root/shellcode.exe\n","cyan"))
     except:
         print(colored("[-]error\n","cyan"))
 
-def shellcode2_execute():
+def x86cpp_execute():
     try:
-        os.system('i686-w64-mingw32-gcc ' + '/root/shellcode.c' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
+        os.system('i686-w64-mingw32-g++ ' + '-m32 ' + '/root/shellcode.cpp' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
+        os.system('rm -rf ' + '/root/shellcode.cpp')
+        print(colored("[+]shellcode compoile at /root/shellcode.exe\n","cyan"))
+    except:
+        print(colored("[-]error\n","cyan"))
+
+def x64c_execute():
+    try:
+        os.system('x86_64-w64-mingw32-gcc ' + '/root/shellcode.c' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
         os.system('rm -rf '+ '/root/shellcode.c')
         print(colored("[+]shellcode compoile at /root/shellcode.exe\n","cyan"))
     except:
         print(colored("[-]error\n","cyan"))
 
+def x86c_execute():
+    try:
+        os.system('i686-w64-mingw32-gcc ' + '-m32 ' + '/root/shellcode.c' + ' -o ' + '/root/shellcode.exe' + " --static" + " -w")
+        os.system('rm -rf '+ '/root/shellcode.c')
+        print(colored("[+]shellcode compoile at /root/shellcode.exe\n","cyan"))
+    except:
+        print(colored("[-]error\n","cyan"))
 
 
 def banner():
@@ -77,7 +92,7 @@ def banner():
                                  \|   
 {1}
 
-                    {3}v1.5 stable !{1}
+                    {3}v1.7 stable !{1}
                     {3}author lengyi@HongHuSec Lab !{1}
 
 {2} FourEye BypassFrameWork | BypassAV your shellcode && exe {1}

